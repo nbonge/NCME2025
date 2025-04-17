@@ -1311,7 +1311,7 @@ correctly.](images/Figure1.png){#fig-Figure1 fig-align="center"}
     const sidebar = document.querySelector(".sidebar nav");
     if (sidebar) {
       const link = document.createElement("a");
-      link.href = "https://github.com/yourusername/your-repo";
+      link.href = "https://github.com/nbonge/NCME2025/blob/381a2b4f6977a0aac921287602cfa32c5b4ac309/NCME-2025.R";
       link.target = "_blank";
       link.textContent = "View R Code on GitHub";
       link.className = "github-link";  // 👈 Uses your CSS
