@@ -9,9 +9,9 @@ format:
     toc: true
     comments:
       hypothesis: true
+    embed-resources: true
   docx: default
-  jats: default
-  agu-pdf: default
+  elsevier-pdf: default
 
 
 

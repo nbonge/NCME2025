@@ -8,6 +8,7 @@ author:
     affiliations:
       - University of Arkansas
   - name: Ronna C. Turner
+    email: rcturner@uark.edu
     orcid: 0000-0002-2984-7649
     corresponding: false
     affiliations:
@@ -16,6 +17,8 @@ keywords:
   - Response Time
   - Item Response Theory
   - Multilevel Modeling
+  - F > C Phenomenon
+  - Distance-Difficulty Hypothesis
 abstract: |
  Response time has long been thought to be closely related with intelligence via processing speed. If asked to describe a genius, one might describe a person who can do complex mental calculations quickly and with ease. This stereotype that students with high ability level tend to answer questions fastest has come under question, however, with research indicating that response time is a complex process, dependent on more than just ability level. In this study, we use multilevel linear models to analyze the responses and response times on the 2019 TIMSS mathematics achievement test for eighth-grade students in the United States. Our results demonstrate response time’s dependency on student ability level, whether the student answered the item correctly (F > C phenomenon), and item difficulty in relation to the student’s ability level (distance-difficulty hypothesis). We find evidence to support the F > C phenomenon, the distance-difficulty hypothesis, and an interaction between the two. Our results affirm the complexity of cognitive processes involved in item responses, and challenge the widespread use of response time as a stand-alone metric to assess item quality and respondent effort.  
 date: 04/25/2025
@@ -30,8 +33,10 @@ toc-depth: 4
 toc-floating: true
 fig-cap-location: top
 crossref:
-  title-delim: "."  # Use a colon as the delimiter
+  title-delim: "."  # Use a dot as the delimiter
 css: style.css
+nocite: |
+  @*
 ---
 
 ## Introduction
@@ -195,7 +200,7 @@ between the (discrimination-adjusted) ability-difficulty distance, which
 we call “the Tancoš model.” A significant interaction would suggest a
 difference in the relationship between the time needed to answer an item
 and the ability-difficulty distance, according to whether the respondent
-answered the item correctly. See Appendix A for the list of models used.
+answered the item correctly. See Appendix 1 for the list of models used.
 
 ## Method {#sec-method}
 
@@ -222,7 +227,7 @@ items that were presented in isolation on a page. We call these
 analyzed responses from each booklet to determine which booklet(s) had
 the most isolated items and the most responses per booklet. A list of
 each booklet’s number of isolated items and number of respondents for
-eighth grade students are shown in Appendix B. Of the 14 booklets, we
+eighth grade students are shown in Appendix 2. Of the 14 booklets, we
 chose Booklet 14. Our final sample contained 552 complete responses to
 13 isolated items.
 
@@ -236,7 +241,6 @@ obtain each item’s difficulty ($b_i$), discrimination ($a_i$), and each
 respondent’s estimated ability parameter ($θ_j$). See @tbl-Table1 for
 descriptive statistics and 2PL parameters. Empirical reliability was
 sufficiently high for analysis ($r_{xx} = .85$).
-
 
 ### Main Analysis
 
@@ -269,7 +273,7 @@ is given by @eq-Tancos.
 
 The second series of models begins with Model B1, which includes only
 the discrimination-adjusted ability-difficulty distance,
-$\delta_{ij}=a_i |\theta_j-b_i|$, (“ability-difficulty distance”) to
+$\delta_{ij}=a_i |\theta_j-b_i|$ (“ability-difficulty distance”) to
 test the distance-difficulty hypothesis. Model B2 includes $FC_{ij}$,
 representing item correctness, to assess the incremental validity of the
 F \> C phenomenon beyond the distance-difficulty hypothesis. Finally,
@@ -278,7 +282,8 @@ ability-difficulty distance $\delta_{ij}$ and item correctness $FC_{ij}$
 to investigate whether the distance-difficulty hypothesis is moderated
 by item correctness.
 
-#### Null Model
+## Results
+### Null Model
 
 The null model, Model 0, served as our baseline model for both series of
 models. The fixed intercept was significant, ($μ=$ 3.92, 95% CI \[3.67,
@@ -286,9 +291,7 @@ models. The fixed intercept was significant, ($μ=$ 3.92, 95% CI \[3.67,
 for a student of average ability on an item of average difficulty was
 54.16 seconds. @tbl-Table2 displays complete results for Model 0.
 
-
-
-#### Models Assessing F \> C Phenomenon
+### Models Assessing F \> C Phenomenon
 
 We began with Model A1. We found it took students significantly more
 time to answer an item correctly than it did to answer incorrectly
@@ -297,14 +300,12 @@ see students took on average, 1.23 seconds longer to provide correct
 responses than incorrect ones. @tbl-Table3 displays complete results for
 Model A1.
 
-
 In Model A2, the F \> C phenomenon was suppressed but remained
 significant, ($γ_1=$ 0.18, 95% CI \[0.14, 0.22\]). Students with higher
 ability levels took significantly longer to answer items ($γ_3=$ 0.13,
 95% CI \[0.09, 0.17\]), and students took significantly longer to answer
 more difficult questions ($γ_2=$ 0.36, 95% CI \[0.08, 0.62\]).
 @tbl-Table4 displays complete results for Model A2.
-
 
 In Model A3, the F \> C phenomenon remained significant ($γ_1=$ 0.19,
 95% CI \[0.15, 0.23\]), as did item difficulty ($γ_2=$ 0.35, 95% CI
@@ -320,18 +321,111 @@ substantial relationship between ability level and response time for
 correct answers. This pattern is shown in @fig-Figure1, and @tbl-Table5
 displays complete results for Model A3.
 
-Overall, every model fit better than the null model, and each model fit better than the preceding model in the series @tbl-Table6. Given the information criteria and the goodness-of-fit measures, we chose to retain Model A3 as our final model. 
+Overall, every model fit better than the null model, and each model fit
+better than the preceding model in the series @tbl-Table6. Given the
+information criteria and the goodness-of-fit measures, we chose to
+retain Model A3 as our final model.
 
-#### Models Assessing the Distance-Difficulty Hypothesis
-Model B1 assessed the distance-difficulty hypothesis as a predictor for the logarithmic transform of response time, which was significant ($γ_4=$ -0.09, 95% CI [-0.10, -0.08]). From this, we see that for each one-unit increase in $δ_{ij}$, response time is decreased by 8.6%. For example, when $δ_{ij}=0$, the expected response time is 60.46 seconds; when $δ_{ij}=1$, the expected response time is 55.26 seconds; when $δ_{ij}=2$, the expected response time is 50.50 seconds, and so on. @tbl-Table7 displays the complete results for Model B1. 
+### Models Assessing the Distance-Difficulty Hypothesis
 
-For Model B2, we added item correctness as a fixed effect, which was significant ($γ_1=$ 0.22, 95% CI [0.18, 0.26]). The ability-difficulty distance remained significant but was suppressed ($γ_4=$ -0.09, 95% CI [-0.11, -0.08]). From this, we see that students took longer to provide correct answers than incorrect ones, and regardless of item correctness, as the ability-difficulty distance increased, response time decreased. See @tbl-Table8 for complete results for Model B2. 
+Model B1 assessed the distance-difficulty hypothesis as a predictor for
+the logarithmic transform of response time, which was significant
+($γ_4=$ -0.09, 95% CI \[-0.10, -0.08\]). From this, we see that for each
+one-unit increase in $δ_{ij}$, response time is decreased by 8.6%. For
+example, when $δ_{ij}=0$, the expected response time is 60.46 seconds;
+when $δ_{ij}=1$, the expected response time is 55.26 seconds; when
+$δ_{ij}=2$, the expected response time is 50.50 seconds, and so on.
+@tbl-Table7 displays the complete results for Model B1.
 
-Finally, in Model B3, we added an interaction term between item correctness and the ability-difficulty distance, which was significant ($γ_{14}=$ -0.08, 95% CI [-0.11, -0.05]). Item correctness and ability-difficulty distance remained significant ($γ_1=$ -0.07, 95% CI [-0.08,-0.05] and $γ_4=$ 0.29, 95% CI [0.24,0.34], respectively). Taken together, we interpret these results as follows: students take longer to provide correct answers to items near their ability level. As the ability-difficulty distance increases, the relationship switches around $δ_{ij}=$ 3.8, such that students beyond this point take longer to provide incorrect answers. So, students take longer to provide incorrect answers to items that are very difficult or very easy relative to their ability level. Moreover, response time decreases as the ability-difficulty distance increases, regardless of item correctness; that is, students respond quicker to items that are very difficult or very easy relative to their ability level. This pattern is shown in @fig-Figure2, and @tbl-Table9 displays complete results for Model B3. 
+For Model B2, we added item correctness as a fixed effect, which was
+significant ($γ_1=$ 0.22, 95% CI \[0.18, 0.26\]). The ability-difficulty
+distance remained significant but was suppressed ($γ_4=$ -0.09, 95% CI
+\[-0.11, -0.08\]). From this, we see that students took longer to
+provide correct answers than incorrect ones, and regardless of item
+correctness, as the ability-difficulty distance increased, response time
+decreased. See @tbl-Table8 for complete results for Model B2.
 
-Overall, each model fit the data better than the null model, and every model in the series fit the data better than the preceding model (@tbl-Table10). Per this evidence, along with information criteria for each model, we chose to retain Model B3 as our final model. 
+Finally, in Model B3, we added an interaction term between item
+correctness and the ability-difficulty distance, which was significant
+($γ_{14}=$ -0.08, 95% CI \[-0.11, -0.05\]). Item correctness and
+ability-difficulty distance remained significant ($γ_1=$ -0.07, 95% CI
+\[-0.08,-0.05\] and $γ_4=$ 0.29, 95% CI \[0.24,0.34\], respectively).
+Taken together, we interpret these results as follows: students take
+longer to provide correct answers to items near their ability level. As
+the ability-difficulty distance increases, the relationship switches
+around $δ_{ij}=$ 3.8, such that students beyond this point take longer
+to provide incorrect answers. So, students take longer to provide
+incorrect answers to items that are very difficult or very easy relative
+to their ability level. Moreover, response time decreases as the
+ability-difficulty distance increases, regardless of item correctness;
+that is, students respond quicker to items that are very difficult or
+very easy relative to their ability level. This pattern is shown in
+@fig-Figure2, and @tbl-Table9 displays complete results for Model B3.
+
+Overall, each model fit the data better than the null model, and every
+model in the series fit the data better than the preceding model
+(@tbl-Table10). Per this evidence, along with information criteria for
+each model, we chose to retain Model B3 as our final model.
 
 ## Conclusion
+
+The results of our study show that eighth-grade students’ responses to a
+mathematics achievement assessment support the F \> C phenomenon after
+controlling for ability level, item difficulty, and item correctness.
+Moreover, students' responses provide evidence to support the
+distance-difficulty hypothesis after controlling for ability-difficulty
+distance and item correctness, with a significant interaction between
+item correctness and the ability-difficulty distance.
+
+The interaction between the F \> C phenomenon and item correctness may
+have several explanations. Students with higher ability levels may have
+higher levels of grit and may be more likely to try multiple approaches
+to a problem if their initial strategy/approach does not yield a
+solution (Credé et al., 2017; Duckworth et al., 2007; Steinmayr et al.,
+2018). In contrast, students with lower ability levels may not see a
+clear path to a solution when beginning a problem. As we saw,
+lower-ability students took longer to answer questions correctly, which
+could be indicative of students pausing to develop a plan of attack
+before answering the question. Researchers (e.g., Chan et al., 2022)
+have found that longer pauses before beginning a problem can lead to
+more efficient problem-solving, and, ultimately, faster response times.
+
+The observed patterns in the relationship between the ability-difficulty
+distance and response time align with the findings from the Tancoš et
+al. (2023) study; students took longest to answer questions that matched
+the student’s ability level, and response time decreased as the
+ability-difficulty distance increased. One possible explanation for the
+extended time taken to answer questions that match a student's ability
+level is that the question may be difficult enough to be challenging,
+but not so challenging that they have little chance of answering the
+question correctly. When items are very easy relative to a student’s
+ability level, this pattern seems intuitive: easier items take less
+time. However, the idea that students take less time to answer very
+difficult questions is less intuitive but may be a result of an initial
+misjudgment of the item’s difficulty, which would explain our finding
+that students took longer to answer very difficult questions
+incorrectly.
+
+Our study is limited by the low-stakes nature of the TIMSS mathematics
+assessments. Students may not have been highly motivated to perform well
+in this achievement assessment, particularly toward the end of the test,
+so our estimates of student ability and item difficulty may be biased by
+a lack of sufficient effort. Moreover, the magnitude of errors may be
+compounded by the initial IRT estimate and subsequent multilevel
+regression model. Finally, there may be unanalyzed differences in the
+observed relationships across students of different demographic groups
+(such as gender, race/ethnicity, or socio-economic status). Future
+research could examine the magnitude of the fixed effects we analyzed in
+this study by demographic group. Future research may also explore
+whether the results from this study hold with attitudinal scales or
+achievement scales in other academic disciplines. This study extended
+the response time models found by Tancoš et al. (2023) in a
+fluid-reasoning task to a mathematics achievement assessment involving
+crystallized intelligence. Researchers and educators alike utilize
+response time as a catch-all measurement of item suitability, respondent
+effort, and ability-level, but this study’s results imply response time
+is not appropriate as a stand-alone diagnostic tool, as response time is
+influenced by a variety of factors.
 
 ## References {.unnumbered}
 
@@ -365,134 +459,134 @@ Overall, each model fit the data better than the null model, and every model in 
   </thead>
 <tbody>
   <tr>
-    <td><br>1</td>
-    <td><br>552</td>
-    <td><br>-0.13</td>
-    <td><br>1.01</td>
-    <td><br>0.53</td>
-    <td><br>0.50</td>
-    <td><br>40.90</td>
-    <td><br>47.73</td>
+    <td>1</td>
+    <td>552</td>
+    <td>-0.13</td>
+    <td>1.01</td>
+    <td>0.53</td>
+    <td>0.50</td>
+    <td>40.90</td>
+    <td>47.73</td>
   </tr>
   <tr>
-    <td><br>2</td>
-    <td><br>552</td>
-    <td><br>0.00</td>
-    <td><br>1.75</td>
-    <td><br>0.50</td>
-    <td><br>0.50</td>
-    <td><br>72.68</td>
-    <td><br>58.69</td>
+    <td>2</td>
+    <td>552</td>
+    <td>0.00</td>
+    <td>1.75</td>
+    <td>0.50</td>
+    <td>0.50</td>
+    <td>72.68</td>
+    <td>58.69</td>
   </tr>
   <tr>
-    <td><br>3</td>
-    <td><br>552</td>
-    <td><br>0.34</td>
-    <td><br>1.67</td>
-    <td><br>0.41</td>
-    <td><br>0.49</td>
-    <td><br>56.62</td>
-    <td><br>59.44</td>
+    <td>3</td>
+    <td>552</td>
+    <td>0.34</td>
+    <td>1.67</td>
+    <td>0.41</td>
+    <td>0.49</td>
+    <td>56.62</td>
+    <td>59.44</td>
   </tr>
   <tr>
-    <td><br>4</td>
-    <td><br>552</td>
-    <td><br>-0.84</td>
-    <td><br>2.09</td>
-    <td><br>0.74</td>
-    <td><br>0.44</td>
-    <td><br>34.77</td>
-    <td><br>29.84</td>
+    <td>4</td>
+    <td>552</td>
+    <td>-0.84</td>
+    <td>2.09</td>
+    <td>0.74</td>
+    <td>0.44</td>
+    <td>34.77</td>
+    <td>29.84</td>
   </tr>
   <tr>
-    <td><br>5</td>
-    <td><br>552</td>
-    <td><br>-0.38</td>
-    <td><br>2.41</td>
-    <td><br>0.62</td>
-    <td><br>0.49</td>
-    <td><br>70.38</td>
-    <td><br>81.01</td>
+    <td>5</td>
+    <td>552</td>
+    <td>-0.38</td>
+    <td>2.41</td>
+    <td>0.62</td>
+    <td>0.49</td>
+    <td>70.38</td>
+    <td>81.01</td>
   </tr>
   <tr>
-    <td><br>6</td>
-    <td><br>552</td>
-    <td><br>-0.16</td>
-    <td><br>2.57</td>
-    <td><br>0.55</td>
-    <td><br>0.50</td>
-    <td><br>102.51</td>
-    <td><br>61.66</td>
+    <td>6</td>
+    <td>552</td>
+    <td>-0.16</td>
+    <td>2.57</td>
+    <td>0.55</td>
+    <td>0.50</td>
+    <td>102.51</td>
+    <td>61.66</td>
   </tr>
   <tr>
-    <td><br>7</td>
-    <td><br>552</td>
-    <td><br>0.08</td>
-    <td><br>1.93</td>
-    <td><br>0.48</td>
-    <td><br>0.50</td>
-    <td><br>55.06</td>
-    <td><br>47.03</td>
+    <td>7</td>
+    <td>552</td>
+    <td>0.08</td>
+    <td>1.93</td>
+    <td>0.48</td>
+    <td>0.50</td>
+    <td>55.06</td>
+    <td>47.03</td>
   </tr>
   <tr>
-    <td><br>8</td>
-    <td><br>552</td>
-    <td><br>1.51</td>
-    <td><br>2.21</td>
-    <td><br>0.12</td>
-    <td><br>0.32</td>
-    <td><br>78.65</td>
-    <td><br>62.14</td>
+    <td>8</td>
+    <td>552</td>
+    <td>1.51</td>
+    <td>2.21</td>
+    <td>0.12</td>
+    <td>0.32</td>
+    <td>78.65</td>
+    <td>62.14</td>
   </tr>
   <tr>
-    <td><br>9</td>
-    <td><br>552</td>
-    <td><br>1.57</td>
-    <td><br>2.85</td>
-    <td><br>0.09</td>
-    <td><br>0.29</td>
-    <td><br>115.56</td>
-    <td><br>80.58</td>
+    <td>9</td>
+    <td>552</td>
+    <td>1.57</td>
+    <td>2.85</td>
+    <td>0.09</td>
+    <td>0.29</td>
+    <td>115.56</td>
+    <td>80.58</td>
   </tr>
   <tr>
-    <td><br>10</td>
-    <td><br>552</td>
-    <td><br>1.05</td>
-    <td><br>2.54</td>
-    <td><br>0.20</td>
-    <td><br>0.40</td>
-    <td><br>58.11</td>
-    <td><br>39.61</td>
+    <td>10</td>
+    <td>552</td>
+    <td>1.05</td>
+    <td>2.54</td>
+    <td>0.20</td>
+    <td>0.40</td>
+    <td>58.11</td>
+    <td>39.61</td>
   </tr>
   <tr>
-    <td><br>11</td>
-    <td><br>552</td>
-    <td><br>-0.61</td>
-    <td><br>1.31</td>
-    <td><br>0.65</td>
-    <td><br>0.48</td>
-    <td><br>67.59</td>
-    <td><br>43.22</td>
+    <td>11</td>
+    <td>552</td>
+    <td>-0.61</td>
+    <td>1.31</td>
+    <td>0.65</td>
+    <td>0.48</td>
+    <td>67.59</td>
+    <td>43.22</td>
   </tr>
   <tr>
-    <td><br>12</td>
-    <td><br>552</td>
-    <td><br>-0.77</td>
-    <td><br>1.23</td>
-    <td><br>0.68</td>
-    <td><br>0.47</td>
-    <td><br>40.25</td>
-    <td><br>31.85</td>
+    <td>12</td>
+    <td>552</td>
+    <td>-0.77</td>
+    <td>1.23</td>
+    <td>0.68</td>
+    <td>0.47</td>
+    <td>40.25</td>
+    <td>31.85</td>
   </tr>
   <tr>
-    <td><br>13</td>
-    <td><br>552</td>
-    <td><br>0.65</td>
-    <td><br>1.74</td>
-    <td><br>0.32</td>
-    <td><br>0.47</td>
-    <td><br>143.72</td>
-    <td><br>101.17</td>
+    <td>13</td>
+    <td>552</td>
+    <td>0.65</td>
+    <td>1.74</td>
+    <td>0.32</td>
+    <td>0.47</td>
+    <td>143.72</td>
+    <td>101.17</td>
   </tr>
   </tbody>
 </table>
@@ -500,7 +594,6 @@ Overall, each model fit the data better than the null model, and every model in 
 
 Descriptive Statistics
 :::
-
 
 ::: {#tbl-Table2}
 ```{=html}
@@ -577,10 +670,9 @@ Descriptive Statistics
 Parameters for Model 0
 :::
 
-*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+*Note.* Coef – coefficient; Est – estimate; CI – confidence interval; LL
 – lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
-.01, \*\*\* p \< .001.*
-
+.01, \*\*\* p \< .001.
 
 ::: {#tbl-Table3}
 ```{=html}
@@ -665,11 +757,9 @@ Parameters for Model 0
 Parameters for Model A1
 :::
 
-*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+*Note.* Coef – coefficient; Est – estimate; CI – confidence interval; LL
 – lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
-.01, \*\*\* p \< .001.*
-
-
+.01, \*\*\* p \< .001.
 
 ::: {#tbl-Table4}
 ```{=html}
@@ -770,9 +860,9 @@ Parameters for Model A1
 Parameters for Model A2
 :::
 
-*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+*Note.* Coef – coefficient; Est – estimate; CI – confidence interval; LL
 – lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
-.01, \*\*\* p \< .001.*
+.01, \*\*\* p \< .001.
 
 ::: {#tbl-Table5}
 ```{=html}
@@ -881,10 +971,9 @@ Parameters for Model A2
 Parameters for Model A3
 :::
 
-*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+*Note.* Coef – coefficient; Est – estimate; CI – confidence interval; LL
 – lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
-.01, \*\*\* p \< .001.*
-
+.01, \*\*\* p \< .001.
 
 ::: {#tbl-Table6}
 ```{=html}
@@ -898,42 +987,42 @@ Parameters for Model A3
   </tr></thead>
 <tbody>
   <tr>
-    <td>Conditional <i>R<sup>2</sup></i></td>
+    <td style="text-align: left;">Conditional <i>R<sup>2</sup></i></td>
     <td>.48</td>
     <td>.50</td>
     <td>.50</td>
     <td>.50</td>
   </tr>
   <tr>
-    <td>Marginal <i>R<sup>2</sup></i></td>
+    <td style="text-align: left;">Marginal <i>R<sup>2</sup></i></td>
     <td>.00</td>
     <td>.01</td>
     <td>.11</td>
     <td>.12</td>
   </tr>
   <tr>
-    <td>Log-likelihood</td>
+    <td style="text-align: left;">Log-likelihood</td>
     <td>-7,558.04</td>
     <td>-7,503.89</td>
     <td>-7,483.22</td>
     <td>-7,446.96</td>
   </tr>
   <tr>
-    <td>AIC</td>
+    <td style="text-align: left;">AIC</td>
     <td>15,124.07</td>
     <td>15,017.77</td>
     <td>14,980.44</td>
     <td>14,909.92</td>
   </tr>
   <tr>
-    <td>BIC</td>
+    <td style="text-align: left;">BIC</td>
     <td>15,151.58</td>
     <td>15,052.16</td>
     <td>15,028.59</td>
     <td>14,964.95</td>
   </tr>
   <tr>
-    <td>Δχ<sup>2</sup>(df)</td>
+    <td style="text-align: left;">Δχ<sup>2</sup>(df)</td>
     <td></td>
     <td>108.30(1)***</td>
     <td>31.33(2)***</td>
@@ -942,9 +1031,9 @@ Parameters for Model A3
 </tbody>
 </table>
 ```
+
 Model Fit For Series 1 Models
 :::
-
 
 ::: {#tbl-Table7}
 ```{=html}
@@ -1029,11 +1118,9 @@ Model Fit For Series 1 Models
 Parameters for Model B1
 :::
 
-*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+*Note.* Coef – coefficient; Est – estimate; CI – confidence interval; LL
 – lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
-.01, \*\*\* p \< .001.*
-
-
+.01, \*\*\* p \< .001.
 
 ::: {#tbl-Table8}
 ```{=html}
@@ -1126,9 +1213,9 @@ Parameters for Model B1
 Parameters for Model B2
 :::
 
-*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+*Note.* Coef – coefficient; Est – estimate; CI – confidence interval; LL
 – lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
-.01, \*\*\* p \< .001.*
+.01, \*\*\* p \< .001.
 
 ::: {#tbl-Table9}
 ```{=html}
@@ -1229,10 +1316,9 @@ Parameters for Model B2
 Parameters for Model B3
 :::
 
-*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+*Note.* Coef – coefficient; Est – estimate; CI – confidence interval; LL
 – lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
-.01, \*\*\* p \< .001.*
-
+.01, \*\*\* p \< .001.
 
 ::: {#tbl-Table10}
 ```{=html}
@@ -1246,42 +1332,42 @@ Parameters for Model B3
   </tr></thead>
 <tbody>
   <tr>
-    <td>Conditional <i>R<sup>2</sup></i></td>
+    <td style="text-align: left;">Conditional <i>R<sup>2</sup></i></td>
     <td>.48</td>
     <td>.53</td>
     <td>.55</td>
     <td>.54</td>
   </tr>
   <tr>
-    <td>Marginal <i>R<sup>2</sup></i></td>
+    <td style="text-align: left;">Marginal <i>R<sup>2</sup></i></td>
     <td>.00</td>
     <td>.03</td>
     <td>.05</td>
     <td>.04</td>
   </tr>
   <tr>
-    <td>Log-likelihood</td>
+    <td style="text-align: left;">Log-likelihood</td>
     <td>-7,558.04</td>
     <td>-7,450.04</td>
     <td>-7,385.87</td>
     <td>-7,374.85</td>
   </tr>
   <tr>
-    <td>AIC</td>
+    <td style="text-align: left;">AIC</td>
     <td>15,124.07</td>
     <td>14,910.08</td>
     <td>14,783.73</td>
     <td>14,763.69</td>
   </tr>
   <tr>
-    <td>BIC</td>
+    <td style="text-align: left;">BIC</td>
     <td>15,151.58</td>
     <td>14,944.47</td>
     <td>14,825.00</td>
     <td>14,811.84</td>
   </tr>
   <tr>
-    <td>Δχ<sup>2</sup>(df)</td>
+    <td style="text-align: left;">Δχ<sup>2</sup>(df)</td>
     <td></td>
     <td>215.992(1)***</td>
     <td>128.346(1)***</td>
@@ -1290,21 +1376,21 @@ Parameters for Model B3
 </tbody>
 </table>
 ```
+
 Model Fit For Series 2 Models
 :::
 
-
 ## Figures {.unnumbered}
+
 ![From Model A3, students’ predicted response time according to ability
 level and whether the student answered the question
 correctly.](images/Figure1.png){#fig-Figure1 fig-align="center"}
 
-![From Model B3, students’ predicted response time according to the discrimination-adjusted ability-difficulty distance and whether the student answered the question correctly.](images/Figure2.png){#fig-Figure2 fig-align="center"}
+![From Model B3, students’ predicted response time according to the
+discrimination-adjusted ability-difficulty distance and whether the
+student answered the question
+correctly.](images/Figure2.png){#fig-Figure2 fig-align="center"}
 
-
-## Appendix A {.unnumbered}
- 
- 
 ```{=html}
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1320,3 +1406,141 @@ correctly.](images/Figure1.png){#fig-Figure1 fig-align="center"}
   });
 </script>
 ```
+
+## Appendix {.unnumbered}
+
+### Appendix 1. List of Models Used {.unnumbered}
+
+Null Model (Model 0):
+
+$$
+\ln{(t_{ij})} = \mu + \nu_j + \beta_i + \epsilon_{ij}
+$$
+
+Model A1:
+
+$$
+\ln{(t_{ij})} = \mu + \nu_j + \beta_i + \gamma_1 FC_{ij} + \epsilon_{ij}
+$$
+
+Model A2:
+
+$$
+\ln{(t_{ij})} = \mu + \nu_j + \beta_i + \gamma_1 FC_{ij} + \gamma_2b_i + \gamma_3 \theta_j + \epsilon_{ij}
+$$
+
+Model A3:
+
+$$
+\ln{(t_{ij})} = \mu + \nu_j + \beta_i + \gamma_1 FC_{ij} + \gamma_2b_i + \gamma_3 \theta_j + \gamma_{13} FC_{ij} \theta_j+ \epsilon_{ij}
+$$
+
+Model B1:
+
+\begin{align}
+\ln{(t_{ij})} &= \mu + \nu_j + \beta_i + \gamma_4 a_i |\theta_j - b_i|+ \epsilon_{ij} \\
+&=\mu + \nu_j +\beta_i +\gamma_4\delta_{ij}+\epsilon_{ij}
+\end{align}
+
+Model B2:
+
+\begin{align}
+\ln{(t_{ij})} &= \mu + \nu_j + \beta_i + \gamma_4 a_i |\theta_j - b_i|+ \gamma_1FC_{ij}+\epsilon_{ij} \\
+&=\mu + \nu_j +\beta_i +\gamma_4\delta_{ij}+\gamma_1 FC_{ij}+\epsilon_{ij}
+\end{align}
+
+Model B3:
+
+\begin{align}
+\ln{(t_{ij})} &= \mu + \nu_j + \beta_i + \gamma_4 a_i |\theta_j - b_i|+ \gamma_1FC_{ij}+\gamma_{14}FC_{ij}a_i|\theta_j-b_i|+\epsilon_{ij} \\
+&=\mu + \nu_j +\beta_i +\gamma_4\delta_{ij}+\gamma_1 FC_{ij}+\gamma_{14}FC_{ij}\delta_{ij}+\epsilon_{ij}
+\end{align}
+
+### Appendix 2. Booklet Overview for 2019 TIMSS Mathematics Achievement Assessment {.unnumbered}
+```{=html}
+<table><thead>
+  <tr>
+    <th>Booklet Number</th>
+    <th style="text-align: center;">Isolated Items</th>
+    <th style="text-align: center;">Sample Size</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>1</td>
+    <td style="text-align: center;">10</td>
+    <td style="text-align: center;">624</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td style="text-align: center;">12</td>
+    <td style="text-align: center;">621</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td style="text-align: center;">12</td>
+    <td style="text-align: center;">626</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td style="text-align: center;">5</td>
+    <td style="text-align: center;">606</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td style="text-align: center;">12</td>
+    <td style="text-align: center;">619</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td style="text-align: center;">11</td>
+    <td style="text-align: center;">633</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td style="text-align: center;">12</td>
+    <td style="text-align: center;">623</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td style="text-align: center;">8</td>
+    <td style="text-align: center;">617</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td style="text-align: center;">11</td>
+    <td style="text-align: center;">606</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td style="text-align: center;">13</td>
+    <td style="text-align: center;">619</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td style="text-align: center;">13</td>
+    <td style="text-align: center;">620</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td style="text-align: center;">11</td>
+    <td style="text-align: center;">625</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td style="text-align: center;">10</td>
+    <td style="text-align: center;">637</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td style="text-align: center;">13</td>
+    <td style="text-align: center;">622</td>
+  </tr>
+</tbody></table>
+```
+
+*Note.* Isolated items refer to items that are shown on a webpage as a
+stand-alone item. Adapted from Trends in International Mathematics and
+Science Study – TIMSS 2019. Copyright 2021 by International Association
+for the Evaluation of Education Achievement (IEA). Publisher: TIMSS &
+PIRLS International Study Center, Lynch School of Education and Human
+Development, Boston College.
