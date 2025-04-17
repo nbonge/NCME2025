@@ -1,0 +1,13 @@
+.github-link {
+  display: block;
+  margin-top: 0rem;
+  padding-left: 0rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: inherit;  /* Inherits normal text color */
+}
+
+.github-link:hover {
+  color: #1a73e8;  /* Blue on hover */
+  text-decoration: underline;
+}

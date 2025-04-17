@@ -21,26 +21,1302 @@ abstract: |
 date: 04/25/2025
 published-title: "Presentation Date"
 bibliography: references.bib
+github: "https://github.com/nbonge/ncme-2025"
 number-sections: true
+editor: 
+  markdown: 
+    wrap: 72
+toc-depth: 4
+toc-floating: true
+fig-cap-location: top
+crossref:
+  title-delim: "."  # Use a colon as the delimiter
+css: style.css
 ---
 
 ## Introduction
-Researchers have long contemplated the role of response time in achievement testing, and how time-to-completion can inform about an item functioning and participant performance. Among researchers, it is a widely held belief that response time is indicative of the cognitive effort required to answer an item (Höhne et al., 2007), so researchers use response time to gauge item quality and comprehensibility (Bassili et al., 1996; Lenzner, 2012; Lenzner et al., 2010), to detect respondent fatigue (Nguyen, 2017), effort (Bowling et al., 2023; Krosnick, 1991; Ulitzsch et al., 2022), and other characteristics such as persistence, motivation, and disengagement (e.g., Nagy & Ulitzsch, 2021; Wise & Demars, 2006). Researchers have also used response time to investigate other cognitive processes underlying item responses (De Boeck & Jeon, 2019), with recent research challenging the long-held “faster equals smarter” stereotype (Gernsbacher et al., 2020).  
 
-In this study, we extend previous models posed by Tancoš et al. (2023) to achievement data, arguing that response time depends on (1) item difficulty, (2) respondent ability level, (3) the distance between the item’s difficulty and the respondent’s ability level (referred to as the distance-difficulty hypothesis; Thissen, 1983), and (4) whether the respondent answered the item correctly (F > C phenomenon; Beckmann, 2000).  
+Researchers have long contemplated the role of response time in
+achievement testing, and how time-to-completion can inform about an item
+functioning and participant performance. Among researchers, it is a
+widely held belief that response time is indicative of the cognitive
+effort required to answer an item (Höhne et al., 2007), so researchers
+use response time to gauge item quality and comprehensibility (Bassili
+et al., 1996; Lenzner, 2012; Lenzner et al., 2010), to detect respondent
+fatigue (Nguyen, 2017), effort (Bowling et al., 2023; Krosnick, 1991;
+Ulitzsch et al., 2022), and other characteristics such as persistence,
+motivation, and disengagement (e.g., Nagy & Ulitzsch, 2021; Wise &
+Demars, 2006). Researchers have also used response time to investigate
+other cognitive processes underlying item responses (De Boeck & Jeon,
+2019), with recent research challenging the long-held “faster equals
+smarter” stereotype (Gernsbacher et al., 2020).
+
+In this study, we extend previous models posed by Tancoš et al. (2023)
+to achievement data, arguing that response time depends on (1) item
+difficulty, (2) respondent ability level, (3) the distance between the
+item’s difficulty and the respondent’s ability level (referred to as the
+distance-difficulty hypothesis; Thissen, 1983), and (4) whether the
+respondent answered the item correctly (F \> C phenomenon; Beckmann,
+2000).
 
 ## Theoretical Framework
-### The F > C Phenomenon
-One approach to modelling response time is the F > C (False > Correct) phenomenon (Beckmann, 2000), also called the I > C phenomenon, which posits that respondents take longer to report incorrect answers than they take to provide correct ones. Formally, the F > C phenomenon is given by (Beckmann, 2000, as cited in Tancoš et al., 2023, p. 3):
-$$t_{ij} = \mu + \gamma FC_{ij} + \epsilon_{ij},$$ {#eq-FC}
-where $t_{ij}$ is the response time of respondent $j$ on item $i$; $\mu$ is an intercept representing the average response time across all items and respondents; $FC_{ij}$ is a binary indicator representing whether respondent $j$ answered item $i$ correctly; $\gamma$ is an unstandardized regression coefficient representin the mean difference 
 
-## Data & Methods {#sec-data-methods}
+### The F \> C Phenomenon
+
+One approach to modelling response time is the F \> C (False \> Correct)
+phenomenon (Beckmann, 2000), also called the I \> C phenomenon, which
+posits that respondents take longer to report incorrect answers than
+they take to provide correct ones. Formally, the F \> C phenomenon is
+given by (Beckmann, 2000, as cited in Tancoš et al., 2023, p. 3):
+$$t_{ij} = \mu + \gamma FC_{ij} + \epsilon_{ij},$$ {#eq-FC} where
+$t_{ij}$ is the response time of respondent $j$ on item $i$; $\mu$ is an
+intercept representing the average response time across all items and
+respondents; $FC_{ij}$ is a binary indicator representing whether
+respondent $j$ answered item $i$ correctly; $\gamma$ is an
+unstandardized regression coefficient representing the mean difference
+in response time between false and correct answers; and $\epsilon_{ij}$
+is a normally distributed residual.
+
+### The Distance-Difficulty Hypothesis
+
+Another approach to modeling response time is the distance-difficulty
+hypothesis, based in item response theory, proposed originally by
+Thissen (1983). The distance-difficulty hypothesis states that response
+time decreases with increasing distance between an item’s difficulty
+($b_i$) and a respondent's ability level ($\theta_j$), given by
+$\delta_{ij} = |\theta_j-b_i|$, called person-item distance. In other
+words, a respondent should take longer to answer a question that is
+close to their ability level. Conversely, a respondent should take less
+time to answer a question that is very easy or very difficult, relative
+to the respondent’s ability level. Thissen’s model is given by:
+$$\ln{(t_{ij})}=\mu+\tau_j+\beta_i-\gamma\delta_{ij}+\epsilon_{ij},$$ {#eq-DD}
+where $\ln{(t_{ij})}$ is a logarithmic transformation of the response
+time for respondent $j$ on item $i$ (this transformation is meant to
+achieve normally distributed errors $\epsilon_{ij}$); $\mu$ is the
+intercept, representing the average response time across all respondents
+and items; $\tau_j$ represents respondent $j$'s average response time
+across all items; $\beta_i$ represents the response time of an
+average-ability respondent for item $i$; and $\gamma$ is a coefficient
+representing the magnitude of the difference of the relationship between
+response time and the ability-difficulty distance, which is expected to
+be negative.
+
+Ferrando and Lorenzo-Seva (2007) proposed an alternative person-item
+distance measure according to the two-parameter logistic (2PL) model.
+This model is given by (Ferrando & Lorenzo-Seva, 2007, p. 528):
+$$\delta_{ij} = \sqrt{a_i^2 (\theta_j - b_i)^2},$$ {#eq-FLS} where $a_i$
+is the discrimination for item $i$. Well-designed items have positive
+discrimination, in which case, one can simplify @eq-FLS to
+$\delta_{ij} = a_i|\theta_j-b_i|$. We call this discrimination-adjusted
+person-item distance the "ability-difficulty distance."
+
+### The Tancoš Models
+
+Combining these approaches, Tancoš et al. (2023) examined the time
+children took to complete fluid-reasoning tasks in a game-based
+application, using item difficulty, respondent ability level, and answer
+correctness as predictors in multilevel regression models with response
+time as the outcome variable.
+
+Tancoš et al. (2023) proposed two series of multilevel models relating
+fluid intelligence in children to response time. The first series of
+models focused on the F \> C phenomenon, controlling for item difficulty
+($b_i$) and respondent ability ($\theta_j$) with an interaction between
+answer correctness ($FC_{ij}$) and respondent ability. This series of
+model culminates with the following model (Tancoš et al., 2023, p. 7):
+$$\ln{(t_{ij})} = \mu + \nu_j +\beta_i +\gamma_1FC_{ij}+\gamma_2b_i+\gamma_3\theta_j+\gamma_{13}FC_{ij}\theta_j+\epsilon_{ij},$$ {#eq-Tancos}
+where $\ln{(t_{ij})}$ is a logarithmic transformation of the response
+time for person $j$ to item $i$; $\mu$ is the fixed intercept,
+representing the transformed response time of an average-ability
+respondent to an item of average difficulty; $\nu_j$ is the random
+intercept for person $j$, representing the general speediness of
+respondent $j$ (the average transformed response time of respondent $j$
+across all items); $\beta_i$ is the random intercept for item $i$,
+representing the expected transformed response time required by a
+respondent of average ability to item $i$; $\gamma_1$, $\gamma_2$,
+$\gamma_3$, and $\gamma_{13}$ are fixed effects of the corresponding
+predictors; and $\epsilon_{ij}$ is the normally distributed residual.
+
+The second series of models Tancoš et al. (2023) proposed assessed the
+distance-difficulty hypothesis, and investigates the incremental
+validity of the distance-difficulty hypothesis over the F \> C
+phenomenon. This model is given by (Tancoš et al., 2023, p. 8):
+$$\ln{(t_{ij})} = \mu + \nu_j +\beta_i +\gamma_4\delta_{ij}+\gamma_1FC_{ij}+\gamma_{14}FC_{ij}\delta_{ij}+\epsilon_{ij},$$ {#eq-Tancos2}
+where $\ln{(t_{ij})}$, $\mu$, $\nu_j$, $\beta_i$, and $FC_{ij}$ are as
+defined above; $\delta_{ij}=|\theta_j-b_i|$ is the absolute distance
+between respondent $j$'s ability level and item $i$'s difficulty;
+$\gamma_1$, $\gamma_2$, $\gamma_3$, and $\gamma_{13}$ are the fixed
+effects of the corresponding predictors; and $\epsilon_{ij}$ is the
+normally distributed residual.
+
+In their study, Tancoš et al. (2023) found that the F \> C phenomenon
+remained significant after controlling for item difficulty and person
+ability, with a significant interaction between ability level and item
+correctness. Moreover, they found ability level to be a significant
+predictor of transformed response time (though, only in items with
+moderate or high difficulty), while item difficulty was not. In sum,
+their results indicate that on items with moderate-to-high difficulty,
+children with higher ability levels took longer to report incorrect
+answers than children with lower ability levels. However, Tancoš et al.
+(2023) failed to find a relationship between response time and ability
+level in correctly answered items, challenging the “faster equals
+smarter” stereotype.
+
+Furthermore, Tancoš et al. (2023) found incremental validity of the
+distance-difficulty hypothesis above and beyond the F \> C phenomenon,
+providing evidence to support that answer correctness moderates the
+effect of ability-difficulty distance, ($\delta_{ij}$), on response
+time. Taken together, these results suggest that items near a
+respondent’s ability level take the longest amount of time to answer,
+with even more time required to answer items incorrectly. Moreover, as
+$\delta_{ij}$ increased the difference in response time narrowed,
+eventually changing direction. That is, when an item was very easy or
+very difficult relative to the respondent’s ability level, respondents
+tended to take longer to report correct answers than false ones.
+
+### The Proposed Models
+
+In this study, we will extend the Tancoš et al. (2023) methodology to
+mathematics achievement data from the 2019 TIMSS (Trends in
+International Mathematics and Science Study) for fourth- and
+eighth-grade students. Using these data, we will compare results from
+two series of multilevel linear models to assess the F \> C phenomenon,
+the distance-difficulty hypothesis, and any interaction between the two.
+
+The first series of models will assess the F \> C phenomenon,
+controlling for ability level and item difficulty. With these models, we
+will determine whether the relationship between ability level and
+response time is moderated by answer correctness. Then, we will assess
+the distance-difficulty hypothesis using the second series of models,
+controlling for the discrimination-adjusted ability-difficulty distance.
+If we find the F \> C phenomenon and distance-difficulty hypothesis both
+hold, we will investigate whether there is a significant interaction
+between the (discrimination-adjusted) ability-difficulty distance, which
+we call “the Tancoš model.” A significant interaction would suggest a
+difference in the relationship between the time needed to answer an item
+and the ability-difficulty distance, according to whether the respondent
+answered the item correctly. See Appendix A for the list of models used.
+
+## Method {#sec-method}
+
+### Participants and Measures
+
+We examined data from the 2019 TIMSS mathematics achievement assessment.
+The TIMSS is a set of international assessments of fourth- and
+eighth-grade students’ mathematics and science achievement and
+attitudes, along with survey responses from teachers and principals to
+gather information related to the background contexts for learning. The
+TIMSS is conducted every four years, with 64 countries participating in
+the 2019 assessment cycle (Mullis et al., 2020). In the United States,
+data were collected from 9,944 eighth-grade students in 273 schools.
+Beginning in 2019, the United States opted into the eTIMSS, a new
+computer-based version of the assessment, allowing response time data to
+be collected alongside participating student responses. Students
+answered items from one of fourteen booklets, composed of item block
+combinations. Response times were computed as time in seconds spent on a
+page with a single item, or a set of connected items (such as multi-part
+questions); to maximize the validity of our response time records, we
+dropped items that were presented as a set on a page and kept only those
+items that were presented in isolation on a page. We call these
+“isolated items.” After dropping items presented together on a page, we
+analyzed responses from each booklet to determine which booklet(s) had
+the most isolated items and the most responses per booklet. A list of
+each booklet’s number of isolated items and number of respondents for
+eighth grade students are shown in Appendix B. Of the 14 booklets, we
+chose Booklet 14. Our final sample contained 552 complete responses to
+13 isolated items.
+
+### IRT Analysis
+
+All analyses were conducted using R Statistical Software (v4.4.1; R Core
+Team, 2024). The TIMSS mathematics assessments were validated by the
+creators using a two-parameter logistic (2PL) model, so we performed a
+2PL IRT analysis using the *mirt* R package (v1.41; Chalmers, 2012) to
+obtain each item’s difficulty ($b_i$), discrimination ($a_i$), and each
+respondent’s estimated ability parameter ($θ_j$). See @tbl-Table1 for
+descriptive statistics and 2PL parameters. Empirical reliability was
+sufficiently high for analysis ($r_{xx} = .85$).
+
+
+### Main Analysis
+
+Our main analysis involved two series of nested linear multilevel
+regression models. The first series of models tested the F \> C
+phenomenon, controlling for item difficulty and respondent ability; the
+second series of models assessed the distance-difficulty hypothesis and
+its interaction with the F \> C phenomenon. We used the *lme4* package
+(v1.1-35.5; Bates et al., 2015) to estimate each model, and after
+estimation, we computed the variance inflation factor (VIF) to check
+each model for multicollinearity using the *car* package (v3.1-3; Fox &
+Weisberg, 2019). Finally, we used the *lmerTest* package (v3.1-3;
+Kuznetsova et al., 2017) to compare models.
+
+We began our analysis by estimating a null model (Model 0) to serve as a
+baseline for both series of models. Consistent with Tancoš et al.
+(2023), Model 0 included only fixed and random intercept terms for
+respondents and items; all models used a logarithmically transformed
+response time for the dependent variable to linearize the relationship
+between the predictor variables and response time.
+
+For the first series of models, we began by defining Model A1, which
+includes only a binary predictor for item correctness ($FC_{ij}$); Model
+A2 includes two additional predictors, item difficulty $b_i$ and
+respondent ability $\theta_j$ for control variables; finally, Model A3
+includes an interaction term between item correctness and respondent
+ability to investigate whether item correctness moderates the
+relationship between ability level and the F \> C phenomenon. Model A3
+is given by @eq-Tancos.
+
+The second series of models begins with Model B1, which includes only
+the discrimination-adjusted ability-difficulty distance,
+$\delta_{ij}=a_i |\theta_j-b_i|$, (“ability-difficulty distance”) to
+test the distance-difficulty hypothesis. Model B2 includes $FC_{ij}$,
+representing item correctness, to assess the incremental validity of the
+F \> C phenomenon beyond the distance-difficulty hypothesis. Finally,
+Model B3, given by @eq-Tancos2, includes an interaction term between the
+ability-difficulty distance $\delta_{ij}$ and item correctness $FC_{ij}$
+to investigate whether the distance-difficulty hypothesis is moderated
+by item correctness.
+
+#### Null Model
+
+The null model, Model 0, served as our baseline model for both series of
+models. The fixed intercept was significant, ($μ=$ 3.92, 95% CI \[3.67,
+4.18\]). Transforming this parameter, we see the average response time
+for a student of average ability on an item of average difficulty was
+54.16 seconds. @tbl-Table2 displays complete results for Model 0.
+
+
+
+#### Models Assessing F \> C Phenomenon
+
+We began with Model A1. We found it took students significantly more
+time to answer an item correctly than it did to answer incorrectly
+($γ_1=$ 0.21, 95% CI \[0.17, 0.25\]). Transforming this parameter, we
+see students took on average, 1.23 seconds longer to provide correct
+responses than incorrect ones. @tbl-Table3 displays complete results for
+Model A1.
+
+
+In Model A2, the F \> C phenomenon was suppressed but remained
+significant, ($γ_1=$ 0.18, 95% CI \[0.14, 0.22\]). Students with higher
+ability levels took significantly longer to answer items ($γ_3=$ 0.13,
+95% CI \[0.09, 0.17\]), and students took significantly longer to answer
+more difficult questions ($γ_2=$ 0.36, 95% CI \[0.08, 0.62\]).
+@tbl-Table4 displays complete results for Model A2.
+
+
+In Model A3, the F \> C phenomenon remained significant ($γ_1=$ 0.19,
+95% CI \[0.15, 0.23\]), as did item difficulty ($γ_2=$ 0.35, 95% CI
+\[0.07, 0.62\]) and student ability level ($γ_3=$ 0.22, 95% CI \[0.18,
+0.27\]). Moreover, we found a significant interaction between item
+correctness and ability level ($γ_{13}=$-0.21, 95% CI \[-0.26, -0.16\]).
+Taken together, we can interpret this to mean that students with lower
+ability levels took longer to answer items correctly than incorrectly,
+and students with higher ability levels took longer to provide incorrect
+answers than correct ones. Moreover, we found a positive relationship
+between ability level and response time for incorrect answers, but no
+substantial relationship between ability level and response time for
+correct answers. This pattern is shown in @fig-Figure1, and @tbl-Table5
+displays complete results for Model A3.
+
+Overall, every model fit better than the null model, and each model fit better than the preceding model in the series @tbl-Table6. Given the information criteria and the goodness-of-fit measures, we chose to retain Model A3 as our final model. 
+
+#### Models Assessing the Distance-Difficulty Hypothesis
+Model B1 assessed the distance-difficulty hypothesis as a predictor for the logarithmic transform of response time, which was significant ($γ_4=$ -0.09, 95% CI [-0.10, -0.08]). From this, we see that for each one-unit increase in $δ_{ij}$, response time is decreased by 8.6%. For example, when $δ_{ij}=0$, the expected response time is 60.46 seconds; when $δ_{ij}=1$, the expected response time is 55.26 seconds; when $δ_{ij}=2$, the expected response time is 50.50 seconds, and so on. @tbl-Table7 displays the complete results for Model B1. 
+
+For Model B2, we added item correctness as a fixed effect, which was significant ($γ_1=$ 0.22, 95% CI [0.18, 0.26]). The ability-difficulty distance remained significant but was suppressed ($γ_4=$ -0.09, 95% CI [-0.11, -0.08]). From this, we see that students took longer to provide correct answers than incorrect ones, and regardless of item correctness, as the ability-difficulty distance increased, response time decreased. See @tbl-Table8 for complete results for Model B2. 
+
+Finally, in Model B3, we added an interaction term between item correctness and the ability-difficulty distance, which was significant ($γ_{14}=$ -0.08, 95% CI [-0.11, -0.05]). Item correctness and ability-difficulty distance remained significant ($γ_1=$ -0.07, 95% CI [-0.08,-0.05] and $γ_4=$ 0.29, 95% CI [0.24,0.34], respectively). Taken together, we interpret these results as follows: students take longer to provide correct answers to items near their ability level. As the ability-difficulty distance increases, the relationship switches around $δ_{ij}=$ 3.8, such that students beyond this point take longer to provide incorrect answers. So, students take longer to provide incorrect answers to items that are very difficult or very easy relative to their ability level. Moreover, response time decreases as the ability-difficulty distance increases, regardless of item correctness; that is, students respond quicker to items that are very difficult or very easy relative to their ability level. This pattern is shown in @fig-Figure2, and @tbl-Table9 displays complete results for Model B3. 
+
+Overall, each model fit the data better than the null model, and every model in the series fit the data better than the preceding model (@tbl-Table10). Per this evidence, along with information criteria for each model, we chose to retain Model B3 as our final model. 
 
 ## Conclusion
 
 ## References {.unnumbered}
 
-:::{#refs}
-
+::: {#refs}
 :::
+
+## Tables {.unnumbered}
+
+::: {#tbl-Table1}
+```{=html}
+<table>
+  <thead>
+<tr>
+    <th>Item</th>
+    <th>Sample</th>
+    <th>Item Difficulty</th>
+    <th>Item Discrimination</th>
+    <th colspan="2">Response (Proportion Correct)</th>
+    <th colspan="2">Response Time (Seconds)</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>M</td>
+    <td>SD</td>
+    <td>M</td>
+    <td>SD</td>
+  </tr>
+  </thead>
+<tbody>
+  <tr>
+    <td><br>1</td>
+    <td><br>552</td>
+    <td><br>-0.13</td>
+    <td><br>1.01</td>
+    <td><br>0.53</td>
+    <td><br>0.50</td>
+    <td><br>40.90</td>
+    <td><br>47.73</td>
+  </tr>
+  <tr>
+    <td><br>2</td>
+    <td><br>552</td>
+    <td><br>0.00</td>
+    <td><br>1.75</td>
+    <td><br>0.50</td>
+    <td><br>0.50</td>
+    <td><br>72.68</td>
+    <td><br>58.69</td>
+  </tr>
+  <tr>
+    <td><br>3</td>
+    <td><br>552</td>
+    <td><br>0.34</td>
+    <td><br>1.67</td>
+    <td><br>0.41</td>
+    <td><br>0.49</td>
+    <td><br>56.62</td>
+    <td><br>59.44</td>
+  </tr>
+  <tr>
+    <td><br>4</td>
+    <td><br>552</td>
+    <td><br>-0.84</td>
+    <td><br>2.09</td>
+    <td><br>0.74</td>
+    <td><br>0.44</td>
+    <td><br>34.77</td>
+    <td><br>29.84</td>
+  </tr>
+  <tr>
+    <td><br>5</td>
+    <td><br>552</td>
+    <td><br>-0.38</td>
+    <td><br>2.41</td>
+    <td><br>0.62</td>
+    <td><br>0.49</td>
+    <td><br>70.38</td>
+    <td><br>81.01</td>
+  </tr>
+  <tr>
+    <td><br>6</td>
+    <td><br>552</td>
+    <td><br>-0.16</td>
+    <td><br>2.57</td>
+    <td><br>0.55</td>
+    <td><br>0.50</td>
+    <td><br>102.51</td>
+    <td><br>61.66</td>
+  </tr>
+  <tr>
+    <td><br>7</td>
+    <td><br>552</td>
+    <td><br>0.08</td>
+    <td><br>1.93</td>
+    <td><br>0.48</td>
+    <td><br>0.50</td>
+    <td><br>55.06</td>
+    <td><br>47.03</td>
+  </tr>
+  <tr>
+    <td><br>8</td>
+    <td><br>552</td>
+    <td><br>1.51</td>
+    <td><br>2.21</td>
+    <td><br>0.12</td>
+    <td><br>0.32</td>
+    <td><br>78.65</td>
+    <td><br>62.14</td>
+  </tr>
+  <tr>
+    <td><br>9</td>
+    <td><br>552</td>
+    <td><br>1.57</td>
+    <td><br>2.85</td>
+    <td><br>0.09</td>
+    <td><br>0.29</td>
+    <td><br>115.56</td>
+    <td><br>80.58</td>
+  </tr>
+  <tr>
+    <td><br>10</td>
+    <td><br>552</td>
+    <td><br>1.05</td>
+    <td><br>2.54</td>
+    <td><br>0.20</td>
+    <td><br>0.40</td>
+    <td><br>58.11</td>
+    <td><br>39.61</td>
+  </tr>
+  <tr>
+    <td><br>11</td>
+    <td><br>552</td>
+    <td><br>-0.61</td>
+    <td><br>1.31</td>
+    <td><br>0.65</td>
+    <td><br>0.48</td>
+    <td><br>67.59</td>
+    <td><br>43.22</td>
+  </tr>
+  <tr>
+    <td><br>12</td>
+    <td><br>552</td>
+    <td><br>-0.77</td>
+    <td><br>1.23</td>
+    <td><br>0.68</td>
+    <td><br>0.47</td>
+    <td><br>40.25</td>
+    <td><br>31.85</td>
+  </tr>
+  <tr>
+    <td><br>13</td>
+    <td><br>552</td>
+    <td><br>0.65</td>
+    <td><br>1.74</td>
+    <td><br>0.32</td>
+    <td><br>0.47</td>
+    <td><br>143.72</td>
+    <td><br>101.17</td>
+  </tr>
+  </tbody>
+</table>
+```
+
+Descriptive Statistics
+:::
+
+
+::: {#tbl-Table2}
+```{=html}
+<table><thead>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" style="text-align: center;">95% CI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;">Coef.</td>
+    <td style="text-align: center;">Est.</td>
+    <td></td>
+    <td style="text-align: center;">LL</td>
+    <td style="text-align: center;">UL</td>
+  </tr>
+  </thead>
+<tbody>
+
+  <tr>
+    <td style="text-align: left;"><i>Fixed Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr style="border-bottom: 1px #919294;">
+    <td style="text-align: left;">Intercept</td>
+    <td style="text-align: center;">μ</td>
+    <td style="text-align: center;">3.92</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">3.67</td>
+    <td style="text-align: center;">4.18</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;"><i>Random Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Person intercept variance</td>
+    <td style="text-align: center;">var(<i>ν<sub>j</sub></i> )</td>
+    <td style="text-align: center;">0.18</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item intercept variance</td>
+    <td style="text-align: center;">var(<i>β<sub>i</sub></i> )</td>
+    <td style="text-align: center;">0.20</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Residual Variance</td>
+    <td style="text-align: center;">var(<i>ε<sub>ij</sub></i> )</td>
+    <td style="text-align: center;">0.41</td>
+    <td style="text-align: center;"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody></table>
+```
+
+Parameters for Model 0
+:::
+
+*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+– lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
+.01, \*\*\* p \< .001.*
+
+
+::: {#tbl-Table3}
+```{=html}
+<table><thead>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" style="text-align: center;">95% CI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;">Coef.</td>
+    <td style="text-align: center;">Est.</td>
+    <td></td>
+    <td style="text-align: center;">LL</td>
+    <td style="text-align: center;">UL</td>
+  </tr>
+  </thead>
+<tbody>
+
+  <tr>
+    <td style="text-align: left;"><i>Fixed Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Intercept</td>
+    <td style="text-align: center;">μ</td>
+    <td style="text-align: center;">3.83</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">3.56</td>
+    <td style="text-align: center;">4.10</td>
+  </tr>
+    <tr style="border-bottom: 1px #919294;">
+    <td style="text-align: left;">Correct Answer (FC)</td>
+    <td style="text-align: center;">γ<sub>1</sub></td>
+    <td style="text-align: center;">0.21</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.17</td>
+    <td style="text-align: center;">0.25</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;"><i>Random Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Person intercept variance</td>
+    <td style="text-align: center;">var(<i>ν<sub>j</sub></i> )</td>
+    <td style="text-align: center;">0.17</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item intercept variance</td>
+    <td style="text-align: center;">var(<i>β<sub>i</sub></i> )</td>
+    <td style="text-align: center;">0.22</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Residual Variance</td>
+    <td style="text-align: center;">var(<i>ε<sub>ij</sub></i> )</td>
+    <td style="text-align: center;">0.41</td>
+    <td style="text-align: center;"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody></table>
+```
+
+Parameters for Model A1
+:::
+
+*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+– lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
+.01, \*\*\* p \< .001.*
+
+
+
+::: {#tbl-Table4}
+```{=html}
+<table><thead>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" style="text-align: center;">95% CI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;">Coef.</td>
+    <td style="text-align: center;">Est.</td>
+    <td></td>
+    <td style="text-align: center;">LL</td>
+    <td style="text-align: center;">UL</td>
+  </tr>
+  </thead>
+<tbody>
+
+  <tr>
+    <td style="text-align: left;"><i>Fixed Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Intercept</td>
+    <td style="text-align: center;">μ</td>
+    <td style="text-align: center;">3.78</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">3.56</td>
+    <td style="text-align: center;">4.00</td>
+  </tr>
+    <tr>
+    <td style="text-align: left;">Correct Answer (FC)</td>
+    <td style="text-align: center;">γ<sub>1</sub></td>
+    <td style="text-align: center;">0.18</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.14</td>
+    <td style="text-align: center;">0.22</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item Difficulty</td>
+    <td style="text-align: center;">γ<sub>2</sub></td>
+    <td style="text-align: center;">0.35</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.08</td>
+    <td style="text-align: center;">0.62</td>
+  </tr>
+    <tr style="border-bottom: 1px #919294;">
+    <td style="text-align: left;">Person Ability</td>
+    <td style="text-align: center;">γ<sub>3</sub></td>
+    <td style="text-align: center;">0.13</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.09</td>
+    <td style="text-align: center;">0.17</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;"><i>Random Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Person intercept variance</td>
+    <td style="text-align: center;">var(<i>ν<sub>j</sub></i> )</td>
+    <td style="text-align: center;">0.16</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item intercept variance</td>
+    <td style="text-align: center;">var(<i>β<sub>i</sub></i> )</td>
+    <td style="text-align: center;">0.15</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Residual Variance</td>
+    <td style="text-align: center;">var(<i>ε<sub>ij</sub></i> )</td>
+    <td style="text-align: center;">0.41</td>
+    <td style="text-align: center;"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody></table>
+```
+
+Parameters for Model A2
+:::
+
+*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+– lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
+.01, \*\*\* p \< .001.*
+
+::: {#tbl-Table5}
+```{=html}
+<table><thead>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" style="text-align: center;">95% CI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;">Coef.</td>
+    <td style="text-align: center;">Est.</td>
+    <td></td>
+    <td style="text-align: center;">LL</td>
+    <td style="text-align: center;">UL</td>
+  </tr>
+  </thead>
+<tbody>
+
+  <tr>
+    <td style="text-align: left;"><i>Fixed Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Intercept</td>
+    <td style="text-align: center;">μ</td>
+    <td style="text-align: center;">3.83</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">3.60</td>
+    <td style="text-align: center;">4.05</td>
+  </tr>
+    <tr>
+    <td style="text-align: left;">Correct Answer (FC)</td>
+    <td style="text-align: center;">γ<sub>1</sub></td>
+    <td style="text-align: center;">0.19</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.15</td>
+    <td style="text-align: center;">0.23</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item Difficulty</td>
+    <td style="text-align: center;">γ<sub>2</sub></td>
+    <td style="text-align: center;">0.35</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.07</td>
+    <td style="text-align: center;">0.62</td>
+  </tr>
+    <tr>
+    <td style="text-align: left;">Person Ability</td>
+    <td style="text-align: center;">γ<sub>3</sub></td>
+    <td style="text-align: center;">0.22</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.18</td>
+    <td style="text-align: center;">0.27</td>
+  </tr>
+  <tr style="border-bottom: 1px #919294;">
+    <td style="text-align: left;">FC x Ability</td>
+    <td style="text-align: center;">γ<sub>13</sub></td>
+    <td style="text-align: center;">-0.21</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">-0.26</td>
+    <td style="text-align: center;">-0.16</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;"><i>Random Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Person intercept variance</td>
+    <td style="text-align: center;">var(<i>ν<sub>j</sub></i> )</td>
+    <td style="text-align: center;">0.15</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item intercept variance</td>
+    <td style="text-align: center;">var(<i>β<sub>i</sub></i> )</td>
+    <td style="text-align: center;">0.16</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Residual Variance</td>
+    <td style="text-align: center;">var(<i>ε<sub>ij</sub></i> )</td>
+    <td style="text-align: center;">0.40</td>
+    <td style="text-align: center;"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody></table>
+```
+
+Parameters for Model A3
+:::
+
+*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+– lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
+.01, \*\*\* p \< .001.*
+
+
+::: {#tbl-Table6}
+```{=html}
+<table><thead>
+  <tr>
+    <th></th>
+    <th>Model 0</th>
+    <th>Model A1</th>
+    <th>Model A2</th>
+    <th>Model A3</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>Conditional <i>R<sup>2</sup></i></td>
+    <td>.48</td>
+    <td>.50</td>
+    <td>.50</td>
+    <td>.50</td>
+  </tr>
+  <tr>
+    <td>Marginal <i>R<sup>2</sup></i></td>
+    <td>.00</td>
+    <td>.01</td>
+    <td>.11</td>
+    <td>.12</td>
+  </tr>
+  <tr>
+    <td>Log-likelihood</td>
+    <td>-7,558.04</td>
+    <td>-7,503.89</td>
+    <td>-7,483.22</td>
+    <td>-7,446.96</td>
+  </tr>
+  <tr>
+    <td>AIC</td>
+    <td>15,124.07</td>
+    <td>15,017.77</td>
+    <td>14,980.44</td>
+    <td>14,909.92</td>
+  </tr>
+  <tr>
+    <td>BIC</td>
+    <td>15,151.58</td>
+    <td>15,052.16</td>
+    <td>15,028.59</td>
+    <td>14,964.95</td>
+  </tr>
+  <tr>
+    <td>Δχ<sup>2</sup>(df)</td>
+    <td></td>
+    <td>108.30(1)***</td>
+    <td>31.33(2)***</td>
+    <td>72.53(1)***</td>
+  </tr>
+</tbody>
+</table>
+```
+Model Fit For Series 1 Models
+:::
+
+
+::: {#tbl-Table7}
+```{=html}
+<table><thead>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" style="text-align: center;">95% CI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;">Coef.</td>
+    <td style="text-align: center;">Est.</td>
+    <td></td>
+    <td style="text-align: center;">LL</td>
+    <td style="text-align: center;">UL</td>
+  </tr>
+  </thead>
+<tbody>
+
+  <tr>
+    <td style="text-align: left;"><i>Fixed Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Intercept</td>
+    <td style="text-align: center;">μ</td>
+    <td style="text-align: center;">4.10</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">3.82</td>
+    <td style="text-align: center;">4.39</td>
+  </tr>
+  <tr style="border-bottom: 1px #919294;">
+    <td style="text-align: left;">Ability-Diffiulty Distance</td>
+    <td style="text-align: center;">γ<sub>4</sub></td>
+    <td style="text-align: center;">-0.09</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">-0.10</td>
+    <td style="text-align: center;">-0.08</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;"><i>Random Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Person intercept variance</td>
+    <td style="text-align: center;">var(<i>ν<sub>j</sub></i> )</td>
+    <td style="text-align: center;">0.17</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item intercept variance</td>
+    <td style="text-align: center;">var(<i>β<sub>i</sub></i> )</td>
+    <td style="text-align: center;">0.24</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Residual Variance</td>
+    <td style="text-align: center;">var(<i>ε<sub>ij</sub></i> )</td>
+    <td style="text-align: center;">0.40</td>
+    <td style="text-align: center;"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody></table>
+```
+
+Parameters for Model B1
+:::
+
+*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+– lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
+.01, \*\*\* p \< .001.*
+
+
+
+::: {#tbl-Table8}
+```{=html}
+<table><thead>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" style="text-align: center;">95% CI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;">Coef.</td>
+    <td style="text-align: center;">Est.</td>
+    <td></td>
+    <td style="text-align: center;">LL</td>
+    <td style="text-align: center;">UL</td>
+  </tr>
+  </thead>
+<tbody>
+
+  <tr>
+    <td style="text-align: left;"><i>Fixed Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Intercept</td>
+    <td style="text-align: center;">μ</td>
+    <td style="text-align: center;">4.01</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">3.71</td>
+    <td style="text-align: center;">4.31</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Correct Answer (FC)</td>
+    <td style="text-align: center;">γ<sub>1</sub></td>
+    <td style="text-align: center;">0.22</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.18</td>
+    <td style="text-align: center;">0.26</td>
+  </tr>
+  <tr style="border-bottom: 1px #919294;">
+    <td style="text-align: left;">Ability-Diffiulty Distance</td>
+    <td style="text-align: center;">γ<sub>4</sub></td>
+    <td style="text-align: center;">-0.09</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">-0.11</td>
+    <td style="text-align: center;">-0.08</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;"><i>Random Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Person intercept variance</td>
+    <td style="text-align: center;">var(<i>ν<sub>j</sub></i> )</td>
+    <td style="text-align: center;">0.16</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item intercept variance</td>
+    <td style="text-align: center;">var(<i>β<sub>i</sub></i> )</td>
+    <td style="text-align: center;">0.28</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Residual Variance</td>
+    <td style="text-align: center;">var(<i>ε<sub>ij</sub></i> )</td>
+    <td style="text-align: center;">0.40</td>
+    <td style="text-align: center;"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody></table>
+```
+
+Parameters for Model B2
+:::
+
+*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+– lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
+.01, \*\*\* p \< .001.*
+
+::: {#tbl-Table9}
+```{=html}
+<table><thead>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" style="text-align: center;">95% CI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;">Coef.</td>
+    <td style="text-align: center;">Est.</td>
+    <td></td>
+    <td style="text-align: center;">LL</td>
+    <td style="text-align: center;">UL</td>
+  </tr>
+  </thead>
+<tbody>
+
+  <tr>
+    <td style="text-align: left;"><i>Fixed Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Intercept</td>
+    <td style="text-align: center;">μ</td>
+    <td style="text-align: center;">3.98</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">3.69</td>
+    <td style="text-align: center;">4.27</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Correct Answer (FC)</td>
+    <td style="text-align: center;">γ<sub>1</sub></td>
+    <td style="text-align: center;">0.29</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">0.24</td>
+    <td style="text-align: center;">0.34</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Ability-Diffiulty Distance</td>
+    <td style="text-align: center;">γ<sub>4</sub></td>
+    <td style="text-align: center;">-0.07</td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">-0.08</td>
+    <td style="text-align: center;">-0.05</td>
+  </tr>
+  <tr style="border-bottom: 1px #919294;">
+    <td style="text-align: left;">FC x Distance</td>
+    <td style="text-align: center;">γ<sub>14</sub></td>
+    <td style="text-align: center;">-0.08/td>
+    <td style="text-align: center;">***</td>
+    <td style="text-align: center;">-0.11</td>
+    <td style="text-align: center;">-0.05</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;"><i>Random Effects</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Person intercept variance</td>
+    <td style="text-align: center;">var(<i>ν<sub>j</sub></i> )</td>
+    <td style="text-align: center;">0.17</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Item intercept variance</td>
+    <td style="text-align: center;">var(<i>β<sub>i</sub></i> )</td>
+    <td style="text-align: center;">0.26</td>
+    <td style="text-align: center;">***</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Residual Variance</td>
+    <td style="text-align: center;">var(<i>ε<sub>ij</sub></i> )</td>
+    <td style="text-align: center;">0.39</td>
+    <td style="text-align: center;"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody></table>
+```
+
+Parameters for Model B3
+:::
+
+*Note: Coef – coefficient; Est – estimate; CI – confidence interval; LL
+– lower limit; UL – upper limit; Var – variance. \* p \< .05, \*\* p \<
+.01, \*\*\* p \< .001.*
+
+
+::: {#tbl-Table10}
+```{=html}
+<table><thead>
+  <tr>
+    <th></th>
+    <th>Model 0</th>
+    <th>Model B1</th>
+    <th>Model B2</th>
+    <th>Model B3</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>Conditional <i>R<sup>2</sup></i></td>
+    <td>.48</td>
+    <td>.53</td>
+    <td>.55</td>
+    <td>.54</td>
+  </tr>
+  <tr>
+    <td>Marginal <i>R<sup>2</sup></i></td>
+    <td>.00</td>
+    <td>.03</td>
+    <td>.05</td>
+    <td>.04</td>
+  </tr>
+  <tr>
+    <td>Log-likelihood</td>
+    <td>-7,558.04</td>
+    <td>-7,450.04</td>
+    <td>-7,385.87</td>
+    <td>-7,374.85</td>
+  </tr>
+  <tr>
+    <td>AIC</td>
+    <td>15,124.07</td>
+    <td>14,910.08</td>
+    <td>14,783.73</td>
+    <td>14,763.69</td>
+  </tr>
+  <tr>
+    <td>BIC</td>
+    <td>15,151.58</td>
+    <td>14,944.47</td>
+    <td>14,825.00</td>
+    <td>14,811.84</td>
+  </tr>
+  <tr>
+    <td>Δχ<sup>2</sup>(df)</td>
+    <td></td>
+    <td>215.992(1)***</td>
+    <td>128.346(1)***</td>
+    <td>22.041(1)***</td>
+  </tr>
+</tbody>
+</table>
+```
+Model Fit For Series 2 Models
+:::
+
+
+## Figures {.unnumbered}
+![From Model A3, students’ predicted response time according to ability
+level and whether the student answered the question
+correctly.](images/Figure1.png){#fig-Figure1 fig-align="center"}
+
+![From Model B3, students’ predicted response time according to the discrimination-adjusted ability-difficulty distance and whether the student answered the question correctly.](images/Figure2.png){#fig-Figure2 fig-align="center"}
+
+
+## Appendix A {.unnumbered}
+ 
+ 
+```{=html}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector(".sidebar nav");
+    if (sidebar) {
+      const link = document.createElement("a");
+      link.href = "https://github.com/yourusername/your-repo";
+      link.target = "_blank";
+      link.textContent = "View R Code on GitHub";
+      link.className = "github-link";  // 👈 Uses your CSS
+      sidebar.appendChild(link);
+    }
+  });
+</script>
+```
