@@ -26,6 +26,7 @@ published-title: "Presentation Date"
 bibliography: references.bib
 github: "https://github.com/nbonge/ncme-2025"
 number-sections: true
+csl: apa.csl
 editor: 
   markdown: 
     wrap: 72
@@ -1391,22 +1392,6 @@ discrimination-adjusted ability-difficulty distance and whether the
 student answered the question
 correctly.](images/Figure2.png){#fig-Figure2 fig-align="center"}
 
-```{=html}
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector(".sidebar nav");
-    if (sidebar) {
-      const link = document.createElement("a");
-      link.href = "https://github.com/nbonge/NCME2025/blob/381a2b4f6977a0aac921287602cfa32c5b4ac309/NCME-2025.R";
-      link.target = "_blank";
-      link.textContent = "View R Code on GitHub";
-      link.className = "github-link";  // 👈 Uses your CSS
-      sidebar.appendChild(link);
-    }
-  });
-</script>
-```
-
 ## Appendix {.unnumbered}
 
 ### Appendix 1. List of Models Used {.unnumbered}
@@ -1544,3 +1529,20 @@ Science Study – TIMSS 2019. Copyright 2021 by International Association
 for the Evaluation of Education Achievement (IEA). Publisher: TIMSS &
 PIRLS International Study Center, Lynch School of Education and Human
 Development, Boston College.
+
+
+```{=html}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector(".sidebar nav");
+    if (sidebar) {
+      const link = document.createElement("a");
+      link.href = "https://github.com/nbonge/NCME2025/blob/381a2b4f6977a0aac921287602cfa32c5b4ac309/NCME-2025.R";
+      link.target = "_blank";
+      link.textContent = "View R Code on GitHub";
+      link.className = "github-link";  // 👈 Uses your CSS
+      sidebar.appendChild(link);
+    }
+  });
+</script>
+```
